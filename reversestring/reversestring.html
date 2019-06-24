@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Output Test</h1>
+    <br />
+    <h3>Results:</h3>
+    <p id="results"></p>
+    <script>
+      //Test Area
+      var word = "testwo4rd";
+
+      function reverseLetter(str) {
+        let stringArr = str.split("");
+        let reverseArr = [];
+        for (i = stringArr.length - 1; i >= 0; i--) {
+          if (stringArr[i].toUpperCase() != stringArr[i].toLowerCase()) {
+            reverseArr.push(stringArr[i]);
+          }
+        }
+        return reverseArr.join("");
+      }
+
+      result = reverseLetter(word);
+
+      // Push results into results p tag
+      document.getElementById("results").innerHTML = result;
+    </script>
+  </body>
+</html>

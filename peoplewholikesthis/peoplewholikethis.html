@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Output Test</h1>
+    <br />
+    <h3>Results:</h3>
+    <p id="results"></p>
+    <script>
+      //Test Area
+      var nameArr = ["Jacob", "Alex", "Tom", "Jerry", "Matt"];
+      function likes(names) {
+        var newArr = [];
+        if (names.length === 0) {
+          return "no one likes this";
+        } else if (names.length === 1) {
+          return names[0] + " likes this";
+        } else if (names.length <= 3) {
+          for (i = 0; i < names.length - 1; i++) {
+            newArr.push(names[i]);
+          }
+          newString = newArr.join(", ");
+          newString += " and " + names[names.length - 1] + " like this";
+          return newString;
+        } else if (names.length >= 4) {
+          for (i = 0; i < 2; i++) {
+            newArr.push(names[i]);
+          }
+          newString = newArr.join(", ");
+          newString += " and " + (names.length - 2) + " others like this";
+          return newString;
+        }
+      }
+
+      result = likes(nameArr);
+      console.log(result);
+
+      // Push results into results p tag
+      document.getElementById("results").innerHTML = result;
+    </script>
+  </body>
+</html>

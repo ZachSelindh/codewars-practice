@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Output Test</h1>
+    <br />
+    <h3>Results:</h3>
+    <p id="results"></p>
+    <script>
+      //Test Area
+
+      var SequenceSum = (function(count) {
+        function SequenceSum(count) {
+          var sequenceArr = [];
+          let sumTotal = 0;
+          for (i = 0; i <= count; i++) {
+            sumTotal += i;
+            sequenceArr.push(i);
+          }
+          console.log(sequenceArr, sumTotal);
+          return { sequenceArr, sumTotal };
+        }
+
+        SequenceSum.showSequence = function(count) {
+          if (count === 0) {
+            return "0=0";
+          } else if (count < 0) {
+            return count + "<0";
+          }
+          var { sequenceArr, sumTotal } = SequenceSum(count);
+          var newArr = sequenceArr.join("+");
+          newArr = newArr + ` = ${sumTotal}`;
+
+          return newArr;
+        };
+
+        return SequenceSum;
+      })();
+
+      result = SequenceSum.showSequence(0);
+      console.log(result);
+
+      // Push results into results p tag
+      document.getElementById("results").innerHTML = result;
+    </script>
+  </body>
+</html>

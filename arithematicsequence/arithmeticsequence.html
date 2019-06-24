@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Output Test</h1>
+    <br />
+    <h3>Results:</h3>
+    <p id="results"></p>
+    <script>
+      //Test Area
+
+      var arrayTest = [1, 6, 16, 21];
+      var findMissing = function(list) {
+        var missingNum;
+        var diff = list[list.length - 1] - list[0];
+        var averageDiff = diff / list.length;
+        for (i = 0; i < list.length - 1; i++) {
+          if (list[i] + averageDiff === list[i + 1]) {
+            console.log(`Nope at ${list[i]}`);
+          } else {
+            missingNum = list[i] + averageDiff;
+          }
+        }
+        return missingNum;
+      };
+
+      var result = findMissing(arrayTest);
+
+      // Push results into results p tag
+      document.getElementById("results").innerHTML = result;
+    </script>
+  </body>
+</html>

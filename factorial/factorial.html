@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Output Test</h1>
+    <br />
+    <h3>Results:</h3>
+    <p id="results"></p>
+    <script>
+      //Test Area
+      function factorial(n) {
+        if (n === 0) {
+          return 1;
+        } else if (n > 12 || n < 0) {
+          throw new RangeError("NOPE");
+        } else {
+          var runningTotal = n;
+          for (i = n - 1; i > 0; i--) {
+            runningTotal = runningTotal * i;
+          }
+          return runningTotal;
+        }
+      }
+
+      result = factorial(7);
+
+      // Push results into results p tag
+      document.getElementById("results").innerHTML = result;
+    </script>
+  </body>
+</html>
