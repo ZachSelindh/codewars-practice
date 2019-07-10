@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Output Test</h1>
+    <br />
+    <h3>Results:</h3>
+    <p id="results"></p>
+    <script>
+      var testwords = "If you can read this?";
+      function to_nato(words) {
+        var newArr = words
+          .toLowerCase()
+          .replace(/ /g, "")
+          .split("");
+        return newArr
+          .map(e => {
+            if (e === "a") {
+              return "Alfa";
+            } else if (e === "b") {
+              return "Bravo";
+            } else if (e === "c") {
+              return "Charlie";
+            } else if (e === "d") {
+              return "Delta";
+            } else if (e === "e") {
+              return "Echo";
+            } else if (e === "f") {
+              return "Foxtrot";
+            } else if (e === "g") {
+              return "Golf";
+            } else if (e === "h") {
+              return "Hotel";
+            } else if (e === "i") {
+              return "India";
+            } else if (e === "j") {
+              return "Juliett";
+            } else if (e === "k") {
+              return "Kilo";
+            } else if (e === "l") {
+              return "Lima";
+            } else if (e === "m") {
+              return "Mike";
+            } else if (e === "n") {
+              return "November";
+            } else if (e === "o") {
+              return "Oscar";
+            } else if (e === "p") {
+              return "Papa";
+            } else if (e === "q") {
+              return "Quebec";
+            } else if (e === "r") {
+              return "Romeo";
+            } else if (e === "s") {
+              return "Sierra";
+            } else if (e === "t") {
+              return "Tango";
+            } else if (e === "u") {
+              return "Uniform";
+            } else if (e === "v") {
+              return "Victor";
+            } else if (e === "w") {
+              return "Whiskey";
+            } else if (e === "x") {
+              return "Xray";
+            } else if (e === "y") {
+              return "Yankee";
+            } else if (e === "z") {
+              return "Zulu";
+            } else {
+              return e;
+            }
+          })
+          .join(" ");
+      }
+
+      result = to_nato(testwords);
+
+      // Push results into results p tag
+      document.getElementById("results").innerHTML = result;
+    </script>
+  </body>
+</html>

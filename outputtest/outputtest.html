@@ -6,25 +6,12 @@
     <h3>Results:</h3>
     <p id="results"></p>
     <script>
-      var testwords = "is2 Thi1s T4est 3a";
-      function order(words) {
-        var sortedArr = [];
-        if (words === "") {
-          return words;
-        } else {
-          var arr = words.split(" ");
-          for (i = 1; i < arr.length + 1; i++) {
-            for (j = 0; j < arr.length; j++) {
-              if (arr[j].includes(i)) {
-                sortedArr.push(arr[j]);
-              }
-            }
-          }
-        }
-        return sortedArr.join(" ");
+      var testwords = "Is this thing on";
+      function to_nato(words) {
+        return words;
       }
 
-      result = order(testwords);
+      result = to_nato(testwords);
 
       // Push results into results p tag
       document.getElementById("results").innerHTML = result;
