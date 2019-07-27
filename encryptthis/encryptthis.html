@@ -16,6 +16,8 @@
             wordArr.splice(1, 1, element[element.length - 1]);
             wordArr.splice(element.length - 1, 1, element[1]);
             newArr.push(wordArr.join(""));
+          } else {
+            newArr.push(element.charCodeAt().toString());
           }
         });
         return newArr.join(" ");
