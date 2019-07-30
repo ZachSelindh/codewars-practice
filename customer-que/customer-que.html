@@ -13,12 +13,10 @@
           custArr.push(0);
         }
         for (var j = 0; j < customers.length; j++) {
-          console.log(j);
           custArr[0] += customers[j];
           custArr.sort((a, b) => {
             return a - b;
           });
-          console.log(custArr, customers[j]);
         }
         return custArr[custArr.length - 1];
       }
