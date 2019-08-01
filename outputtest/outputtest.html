@@ -7,34 +7,27 @@
     <h3>Results:</h3>
     <p id="results"></p>
     <script>
-      function comp(array1, array2) {
-        if (array1 == array2) {
-          return true;
-        } else if (array1 === null || array2 === null) {
-          return false;
-        }
-        console.log(array1, array2);
-        var squaredArr = [];
-        var firstArr = array1.forEach(e => {
-          squaredArr.push(e * e);
-        });
-        var sortedArr = squaredArr.sort((a, b) => {
-          return a - b;
-        });
-        var secondArr = array2.sort((a, b) => {
-          return a - b;
-        });
-        for (i = 0; i < sortedArr.length; i++) {
-          if (sortedArr[i] !== secondArr[i]) {
-            return false;
+      function sumDigPow(a, b) {
+        var arrOfSol = [];
+        for (i = a; i <= b; i++) {
+          var arrOfNum = i.toString().split("");
+          if (arrOfNum.length === 1) {
+            arrOfSol.push(i);
+          } else {
+            runningTotal = 0;
+            for (j = 0; j < arrOfNum.length; j++) {
+              console.log(i, arrOfNum);
+              runningTotal += Math.pow(arrOfNum[j], j + 1);
+            }
+            if (runningTotal === i) {
+              arrOfSol.push(i);
+            }
           }
         }
-        return true;
+        return arrOfSol;
       }
 
-      a1 = [];
-      a2 = null;
-      result = comp(a1, a2); // true
+      result = sumDigPow(1, 150); // [89, 135]
 
       // Push results and inputs into p tags
       document.getElementById("results").innerHTML = result;
