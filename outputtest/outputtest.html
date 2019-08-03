@@ -7,27 +7,35 @@
     <h3>Results:</h3>
     <p id="results"></p>
     <script>
-      function sumDigPow(a, b) {
-        var arrOfSol = [];
-        for (i = a; i <= b; i++) {
-          var arrOfNum = i.toString().split("");
-          if (arrOfNum.length === 1) {
-            arrOfSol.push(i);
-          } else {
-            runningTotal = 0;
-            for (j = 0; j < arrOfNum.length; j++) {
-              console.log(i, arrOfNum);
-              runningTotal += Math.pow(arrOfNum[j], j + 1);
-            }
-            if (runningTotal === i) {
-              arrOfSol.push(i);
-            }
+      function balance(left, right) {
+        let leftArr = left.split("");
+        let rightArr = right.split("");
+        let leftScore = 0;
+        let rightScore = 0;
+        leftArr.forEach(l => {
+          if (l === "!") {
+            leftScore += 2;
+          } else if (l === "?") {
+            leftScore += 3;
           }
+        });
+        rightArr.forEach(r => {
+          if (r === "!") {
+            rightScore += 2;
+          } else if (r === "?") {
+            rightScore += 3;
+          }
+        });
+        if (rightScore > leftScore) {
+          return "Right";
+        } else if (leftScore > rightScore) {
+          return "Left";
+        } else {
+          return "Balance";
         }
-        return arrOfSol;
       }
 
-      result = sumDigPow(1, 150); // [89, 135]
+      result = balance("!!", "??"); // Right
 
       // Push results and inputs into p tags
       document.getElementById("results").innerHTML = result;
