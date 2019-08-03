@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Output Test</h1>
+    <br />
+
+    <h3>Results:</h3>
+    <p id="results"></p>
+    <script>
+      function balance(left, right) {
+        let leftArr = left.split("");
+        let rightArr = right.split("");
+        let leftScore = 0;
+        let rightScore = 0;
+        leftArr.forEach(l => {
+          if (l === "!") {
+            leftScore += 2;
+          } else if (l === "?") {
+            leftScore += 3;
+          }
+        });
+        rightArr.forEach(r => {
+          if (r === "!") {
+            rightScore += 2;
+          } else if (r === "?") {
+            rightScore += 3;
+          }
+        });
+        if (rightScore > leftScore) {
+          return "Right";
+        } else if (leftScore > rightScore) {
+          return "Left";
+        } else {
+          return "Balance";
+        }
+      }
+      result = balance("!!", "??"); // Right
+
+      // Push results and inputs into p tags
+      document.getElementById("results").innerHTML = result;
+    </script>
+  </body>
+</html>
