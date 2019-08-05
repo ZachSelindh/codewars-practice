@@ -7,25 +7,31 @@
     <h3>Results:</h3>
     <p id="results"></p>
     <script>
-      function lowestProduct(input) {
-        if (input.length <= 4) {
-          return "Number is too small";
-        }
-        var lowest = Infinity;
-        for (i = 0; i < input.length - 3; i++) {
-          var product = 1;
-          for (j = i; j < i + 4; j++) {
-            product *= parseInt(input[j]);
-            console.log(product);
-          }
-          if (product < lowest) {
-            lowest = product;
+      function wave(str) {
+        var strArr = [];
+        var newArr = [];
+        for (i in str) {
+          if (str[i].match(/^[a-z]/)) {
+            strArr.push(str);
           }
         }
-        return lowest;
+        for (j = 0; j < strArr.length; j++) {
+          for (k = 0; k < strArr[j].length; k++) {
+            if (/^[a-z]/.test(strArr[j][k])) {
+              var capital = strArr[j][k].toUpperCase();
+              var oldArr = strArr[j].split("");
+              oldArr.splice(k, 1, capital);
+              var newString = oldArr.join("");
+              if (!newArr.includes(newString)) {
+                newArr.push(newString);
+              }
+            }
+          }
+        }
+        return newArr;
       }
 
-      result = lowestProduct("234567899"); //120;
+      result = wave("hell o");
 
       // Push results and inputs into p tags
       document.getElementById("results").innerHTML = result;
