@@ -13,14 +13,14 @@
           if (/^[a-zA-Z]/.test(message[i])) {
             if (message[i] === message[i].toLowerCase()) {
               var index = message[i].charCodeAt();
-              if (index + 13 >= 122) {
+              if (index + 13 > 122) {
                 newIndex = index - 13;
               } else {
                 var newIndex = index + 13;
               }
             } else if (message[i] === message[i].toUpperCase()) {
               var index = message[i].charCodeAt();
-              if (index + 13 >= 90) {
+              if (index + 13 > 90) {
                 var newIndex = index - 13;
               } else {
                 var newIndex = index + 13;
