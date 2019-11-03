@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Output Test</h1>
+    <br />
+
+    <h3>Results:</h3>
+    <p id="results"></p>
+    <script>
+      function productFib(prod) {
+        console.log(prod);
+        var fibArr = [];
+        var answerArr;
+        for (i = 0; i <= prod; i++) {
+          if (i < 2) {
+            fibArr.push(i);
+          } else {
+            var currentNum = fibArr[i - 2] + fibArr[i - 1];
+            if (currentNum < prod) {
+              fibArr.push(currentNum);
+              var currentSum = fibArr[i] * fibArr[i - 1];
+              if (currentSum === prod) {
+                answerArr = [fibArr[i - 1], fibArr[i], true];
+                break;
+              } else if (currentSum > prod) {
+                answerArr = [fibArr[i - 1], fibArr[i], false];
+                break;
+              }
+            }
+          }
+        }
+        return answerArr;
+      }
+
+      result = productFib(4895);
+
+      // Push results and inputs into p tags
+      document.getElementById("results").innerHTML = result;
+    </script>
+  </body>
+</html>
